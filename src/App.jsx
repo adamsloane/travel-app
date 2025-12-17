@@ -4,6 +4,8 @@ import Home from "./screens/home";
 import Trips from "./screens/trips";
 import Trip from "./screens/trip";
 import SharedItineraryView from "./screens/shared_itinerary";
+import AddItemModalFinalV2 from "./screens/add_item_modal_v2";
+
 
 export default function App() {
   return (
@@ -16,6 +18,7 @@ export default function App() {
 
         {/* For now, reuse your existing itinerary screen */}
         <Route path="/trips/:tripId/itinerary" element={<SharedItineraryView />} />
+        <Route path="/add-item" element={<AddItemModalFinalV2 />} />
 
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>

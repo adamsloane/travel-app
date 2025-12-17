@@ -30,6 +30,15 @@ export default function Home() {
           >
             Shared Itinerary →
           </Link>
+          
+          
+          <Link
+          to="/add-item"
+          className="block rounded-xl border border-neutral-200 bg-white p-4 text-sm font-medium hover:bg-neutral-100"
+        >
+          Add Item Modal (V2) →
+        </Link>
+
         </div>
 
         <div className="pt-4 text-xs text-neutral-500">
