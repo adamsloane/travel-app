@@ -1,16 +1,108 @@
-# React + Vite
+# Travel App V0
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A local-first React travel app built for personal use and rapid iteration.
 
-Currently, two official plugins are available:
+This project is intentionally **not validated** and **not production-ready** — the goal is momentum, learning, and building something I actually use.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## React Compiler
+## 🧭 What this is
+- A multi-screen React app (Vite + React Router)
+- Tailwind for styling
+- Local-only data (no backend yet)
+- Designed to grow later (Supabase / auth / sharing if desired)
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 🚀 Getting started (local)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Run the app
+```bash
+cd ~/Desktop/travel-app
+npm run dev
+Open:
+
+arduino
+Copy code
+http://localhost:5173/
+🗂 Project structure (important)
+powershell
+Copy code
+src/
+├── App.jsx              # App shell + routing
+├── main.jsx             # React bootstrap (don’t touch)
+├── index.css            # Tailwind import
+│
+├── screens/             # Full pages / routes
+│   ├── home.jsx
+│   ├── trips.jsx
+│   ├── trip.jsx
+│   └── shared_itinerary.jsx
+│
+├── components/          # Reusable UI
+│   └── nav.jsx
+│
+└── data/                # Local data / mocks
+    └── trips.js
+Rule of thumb:
+
+screens = pages
+
+components = reusable UI
+
+data = temporary local data (will become localStorage / backend later)
+
+🧪 Dev home screen
+The homepage (/) acts as a dev launchpad with direct links to all screens.
+This is intentional for fast iteration and demos.
+
+🎨 Styling
+Tailwind is fully configured
+
+If styles disappear, check:
+
+vite.config.js includes @tailwindcss/vite
+
+src/index.css contains:
+
+css
+Copy code
+@import "tailwindcss";
+🔀 Navigation
+Uses react-router-dom
+
+Routes live in App.jsx
+
+Import paths must match filenames exactly (case + underscores matter)
+
+💾 Version control (very important)
+Save a checkpoint
+bash
+Copy code
+git add .
+git commit -m "Describe change"
+git push
+Commit whenever:
+
+Something works
+
+You’re about to try something risky
+
+You’d be annoyed if you lost progress
+
+Undo uncommitted changes
+bash
+Copy code
+git checkout -- path/to/file.jsx
+🔐 GitHub auth note
+Pushing uses a GitHub Personal Access Token, not a password.
+If prompted again, paste the token as the password.
+
+🧠 Guiding principles
+Build first, validate later
+
+Optimize for momentum
+
+V0 should feel real, not perfect
+
+Personal usefulness > market proof
