@@ -38,6 +38,12 @@ export default function Home() {
         >
           Add Item Modal (V2) →
         </Link>
+        <Link
+          to="/flights"
+          className="block rounded-xl border border-neutral-200 bg-white p-4 text-sm font-medium hover:bg-neutral-100"
+        >
+          Flight Options →
+        </Link>
 
         </div>
 

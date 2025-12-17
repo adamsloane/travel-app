@@ -5,6 +5,8 @@ import Trips from "./screens/trips";
 import Trip from "./screens/trip";
 import SharedItineraryView from "./screens/shared_itinerary";
 import AddItemModalFinalV2 from "./screens/add_item_modal_v2";
+import FlightOptionsScreenFinal from "./screens/flight_options";
+
 
 
 export default function App() {
@@ -21,6 +23,8 @@ export default function App() {
         <Route path="/add-item" element={<AddItemModalFinalV2 />} />
 
         <Route path="*" element={<Navigate to="/" replace />} />
+        <Route path="/flights" element={<FlightOptionsScreenFinal />} />
+
       </Routes>
     </BrowserRouter>
   );
