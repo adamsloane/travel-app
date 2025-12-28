@@ -44,7 +44,12 @@ export default function Home() {
         >
           Flight Options →
         </Link>
-
+        <Link
+          to="/stays"
+          className="block rounded-xl border border-neutral-200 bg-white p-4 text-sm font-medium hover:bg-neutral-100"
+        >
+          Stay Options →
+        </Link>
         </div>
 
         <div className="pt-4 text-xs text-neutral-500">
