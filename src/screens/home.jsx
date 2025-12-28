@@ -50,6 +50,12 @@ export default function Home() {
         >
           Stay Options →
         </Link>
+        <Link
+            to="/saved"
+            className="block rounded-xl border border-neutral-200 bg-white p-4 text-sm font-medium hover:bg-neutral-100"
+          >
+            Saved Items →
+          </Link>
         </div>
 
         <div className="pt-4 text-xs text-neutral-500">
