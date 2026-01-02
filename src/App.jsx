@@ -8,6 +8,7 @@ import AddItemModalFinalV2 from "./screens/add_item_modal_v2";
 import FlightOptionsScreenFinal from "./screens/flight_options";
 import StayOptionsFinal from "./screens/stay_options";
 import SavedItems from "./screens/saved_items";
+import ActivityOptionsScreenFinal from "./screens/activity_options";
 
 
 
@@ -29,6 +30,7 @@ export default function App() {
         <Route path="/flights" element={<FlightOptionsScreenFinal />} />
         <Route path="/stays" element={<StayOptionsFinal />} />
         <Route path="/saved" element={<SavedItems />} />
+        <Route path="/activities" element={<ActivityOptionsScreenFinal />} />
 
 
       </Routes>

@@ -56,10 +56,20 @@ export default function Home() {
           >
             Saved Items →
           </Link>
+        <Link
+          to="/activities"
+          className="block rounded-xl border border-neutral-200 bg-white p-4 text-sm font-medium hover:bg-neutral-100"
+        >
+          Activity Options →
+        </Link>
         </div>
 
         <div className="pt-4 text-xs text-neutral-500">
           This screen is for development only.
+        </div>
+
+        <div className="pt-8 text-center">
+          <p className="text-5xl font-bold text-neutral-900">hello jess</p>
         </div>
       </div>
     </div>
