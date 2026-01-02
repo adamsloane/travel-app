@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 // Add Item Modal – Final v2 (Mobile First)
 // Purpose: Universal entry point for adding Flights / Accommodations / Activities / People
@@ -12,6 +13,7 @@ const CATEGORIES = [
 ];
 
 export default function AddItemModalFinalV2() {
+  const navigate = useNavigate();
   const [open, setOpen] = useState(true);
   const [category, setCategory] = useState("activity");
   const [status, setStatus] = useState("considering"); // considering | confirmed
@@ -133,23 +135,17 @@ export default function AddItemModalFinalV2() {
     console.log("ADD_ITEM_MODAL_SAVE", payload);
     setOpen(false);
     reset();
+    navigate(-1);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+    reset();
+    navigate(-1);
   };
 
   if (!open) {
-    return (
-      <div className="min-h-screen bg-neutral-50 text-neutral-900 flex items-center justify-center p-6">
-        <div className="max-w-sm w-full rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm text-center">
-          <p className="text-sm font-semibold">Modal closed</p>
-          <p className="text-xs text-neutral-500 mt-1">(This is just a wireframe state.)</p>
-          <button
-            className="mt-4 rounded-full bg-blue-600 text-white px-4 py-2 text-xs hover:bg-blue-700"
-            onClick={() => setOpen(true)}
-          >
-            Re-open
-          </button>
-        </div>
-      </div>
-    );
+    return null;
   }
 
   return (
@@ -169,10 +165,7 @@ export default function AddItemModalFinalV2() {
               </div>
               <button
                 className="h-9 w-9 rounded-full border border-neutral-200 bg-white text-neutral-600"
-                onClick={() => {
-                  setOpen(false);
-                  reset();
-                }}
+                onClick={handleClose}
                 aria-label="Close"
               >
                 ✕
@@ -454,10 +447,7 @@ export default function AddItemModalFinalV2() {
           <div className="px-5 py-4 border-t border-neutral-200 bg-white flex gap-2">
             <button
               className="flex-1 rounded-2xl border border-neutral-200 bg-white py-2.5 text-sm text-neutral-700"
-              onClick={() => {
-                setOpen(false);
-                reset();
-              }}
+              onClick={handleClose}
             >
               Cancel
             </button>

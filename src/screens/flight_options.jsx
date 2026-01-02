@@ -1,6 +1,7 @@
 // fights
 
 import { useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 // Flight Options Screen – Final (Mobile First)
 // Purpose: Compare flights side-by-side (card list) and toggle Departing vs Returning
@@ -73,6 +74,7 @@ const flightsData = {
 };
 
 export default function FlightOptionsScreenFinal() {
+  const navigate = useNavigate();
   const [tab, setTab] = useState("departing"); // departing | returning
   const [selected, setSelected] = useState(null);
 
@@ -81,9 +83,17 @@ export default function FlightOptionsScreenFinal() {
   return (
     <div className="min-h-screen bg-neutral-50 text-neutral-900">
       {/* Header */}
-      <header className="bg-white border-b border-neutral-200 px-4 py-3">
-        <h1 className="text-base font-semibold">Flights</h1>
-        <p className="text-xs text-neutral-500">Compare options and pick what works best</p>
+      <header className="bg-white border-b border-neutral-200 px-4 py-3 relative">
+        <button
+          onClick={() => navigate(-1)}
+          className="absolute left-4 top-3 text-sm text-blue-600 hover:underline"
+        >
+          ← Back
+        </button>
+        <div className="text-center">
+          <h1 className="text-base font-semibold">Flights</h1>
+          <p className="text-xs text-neutral-500">Compare options and pick what works best</p>
+        </div>
       </header>
 
       {/* Toggle */}
@@ -172,7 +182,10 @@ export default function FlightOptionsScreenFinal() {
               (selected ? "bg-blue-600 hover:bg-blue-700" : "bg-blue-300 cursor-not-allowed")
             }
             disabled={!selected}
-            onClick={() => console.log("SELECT_FLIGHT", selected)}
+            onClick={() => {
+              console.log("SELECT_FLIGHT", selected);
+              navigate(-1);
+            }}
           >
             Select flight
           </button>

@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 // Accommodation Options Screen – Final (Mobile First)
 // Purpose: Compare accommodation options across different cities / legs of a trip
@@ -58,6 +59,7 @@ const accommodationData = {
 };
 
 export default function AccommodationOptionsScreenFinal() {
+  const navigate = useNavigate();
   const [city, setCity] = useState("tokyo");
   const [selected, setSelected] = useState(null);
 
@@ -66,9 +68,17 @@ export default function AccommodationOptionsScreenFinal() {
   return (
     <div className="min-h-screen bg-neutral-50 text-neutral-900">
       {/* Header */}
-      <header className="bg-white border-b border-neutral-200 px-4 py-3">
-        <h1 className="text-base font-semibold">Accommodations</h1>
-        <p className="text-xs text-neutral-500">Compare places to stay</p>
+      <header className="bg-white border-b border-neutral-200 px-4 py-3 relative">
+        <button
+          onClick={() => navigate(-1)}
+          className="absolute left-4 top-3 text-sm text-blue-600 hover:underline"
+        >
+          ← Back
+        </button>
+        <div className="text-center">
+          <h1 className="text-base font-semibold">Accommodations</h1>
+          <p className="text-xs text-neutral-500">Compare places to stay</p>
+        </div>
       </header>
 
       {/* City toggle */}
@@ -149,7 +159,10 @@ export default function AccommodationOptionsScreenFinal() {
               (selected ? "bg-amber-600 hover:bg-amber-700" : "bg-amber-300 cursor-not-allowed")
             }
             disabled={!selected}
-            onClick={() => console.log("SELECT_ACCOMMODATION", selected)}
+            onClick={() => {
+              console.log("SELECT_ACCOMMODATION", selected);
+              navigate(-1);
+            }}
           >
             Select accommodation
           </button>

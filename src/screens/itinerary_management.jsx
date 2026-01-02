@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 // Itinerary Management Screen – Final (Mobile First)
 // Purpose: Adjust timing/ordering of itinerary items. Keep line items tight.
@@ -71,6 +72,7 @@ const initialDays = [
 const iconChoices = ["📍", "🍽️", "☕", "🗼", "⛩️", "🛍️", "🎟️", "🚶", "🚕", "🚌", "🚅", "✈️", "🏨", "🧳"];
 
 export default function ItineraryManagementScreenFinal() {
+  const navigate = useNavigate();
   const [days, setDays] = useState(initialDays);
   const [activeDayId, setActiveDayId] = useState(1);
 
@@ -173,9 +175,17 @@ export default function ItineraryManagementScreenFinal() {
   return (
     <div className="min-h-screen bg-neutral-50 text-neutral-900">
       {/* Header */}
-      <header className="bg-white border-b border-neutral-200 px-4 py-3">
-        <h1 className="text-base font-semibold">Itinerary</h1>
-        <p className="text-xs text-neutral-500">Reorder and move items across days</p>
+      <header className="bg-white border-b border-neutral-200 px-4 py-3 relative">
+        <button
+          onClick={() => navigate(-1)}
+          className="absolute left-4 top-3 text-sm text-blue-600 hover:underline"
+        >
+          ← Back
+        </button>
+        <div className="text-center">
+          <h1 className="text-base font-semibold">Itinerary</h1>
+          <p className="text-xs text-neutral-500">Reorder and move items across days</p>
+        </div>
       </header>
 
       {/* Day selector (shorter width) */}

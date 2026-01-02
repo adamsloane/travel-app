@@ -1,6 +1,7 @@
 // ✅ Final Version: Shared Itinerary View – visually distinct summary tiles and read-only itinerary layout.
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 export default function SharedItineraryView() {
+  const { tripId } = useParams();
   const trip = {
     name: "Japan Spring Adventure 🌸",
     dates: "April 12 – April 18, 2025",
@@ -53,13 +54,13 @@ export default function SharedItineraryView() {
       {/* Trip Header */}
       <header className="sticky top-0 z-10 bg-white/90 backdrop-blur border-b border-neutral-200">
         <div className="max-w-md mx-auto px-4 py-3 text-center">
-          {/* Back to Home */}
-    <Link
-      to="/"
-      className="absolute left-4 top-3 text-xs text-blue-600 hover:underline"
-    >
-      ← Back
-    </Link>
+          {/* Back to Trip Detail */}
+          <Link
+            to={tripId ? `/trips/${tripId}` : "/trips"}
+            className="absolute left-4 top-3 text-xs text-blue-600 hover:underline"
+          >
+            ← Back
+          </Link>
           <h1 className="text-base font-semibold">{trip.name}</h1>
           <p className="text-xs text-neutral-600">{trip.dates}</p>
           <p className="text-xs text-neutral-500">{trip.destination}</p>
@@ -128,9 +129,22 @@ export default function SharedItineraryView() {
       {/* Footer */}
       <footer className="max-w-md mx-auto text-center py-4 text-[11px] text-neutral-500">
         <p>Generated from Curated Consumption Itinerary App</p>
-        <button className="mt-2 rounded-full bg-blue-600 text-white px-4 py-1 text-xs hover:bg-blue-700 transition">
-          View this Trip in the App
-        </button>
+        <div className="mt-2 flex gap-2 justify-center">
+          <Link
+            to="/itinerary-management"
+            className="rounded-full bg-blue-600 text-white px-4 py-1 text-xs hover:bg-blue-700 transition"
+          >
+            Edit Itinerary
+          </Link>
+          {tripId && (
+            <Link
+              to={`/trips/${tripId}`}
+              className="rounded-full border border-neutral-300 bg-white text-neutral-700 px-4 py-1 text-xs hover:bg-neutral-50 transition"
+            >
+              View Trip Details
+            </Link>
+          )}
+        </div>
       </footer>
     </div>
   );

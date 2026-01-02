@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 // Activity Options Screen – Final (Mobile First)
 // Purpose: View all saved activities/restaurants/places, compare quickly, and add into itinerary.
@@ -77,6 +78,7 @@ const activityData = {
 };
 
 export default function ActivityOptionsScreenFinal() {
+  const navigate = useNavigate();
   const [city, setCity] = useState("tokyo");
   const [selectedId, setSelectedId] = useState(null);
   const [openAdd, setOpenAdd] = useState(false);
@@ -107,16 +109,25 @@ export default function ActivityOptionsScreenFinal() {
       city,
     });
     resetAddFlow();
+    navigate("/itinerary-management");
   };
 
   return (
     <div className="min-h-screen bg-neutral-50 text-neutral-900">
       {/* Header */}
-      <header className="bg-white border-b border-neutral-200 px-4 py-3">
-        <h1 className="text-base font-semibold">Activities</h1>
-        <p className="text-xs text-neutral-500">
-          Saved places you can add to your itinerary
-        </p>
+      <header className="bg-white border-b border-neutral-200 px-4 py-3 relative">
+        <button
+          onClick={() => navigate(-1)}
+          className="absolute left-4 top-3 text-sm text-blue-600 hover:underline"
+        >
+          ← Back
+        </button>
+        <div className="text-center">
+          <h1 className="text-base font-semibold">Activities</h1>
+          <p className="text-xs text-neutral-500">
+            Saved places you can add to your itinerary
+          </p>
+        </div>
       </header>
 
       {/* City toggle */}
