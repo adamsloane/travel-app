@@ -9,6 +9,7 @@ import FlightOptionsScreenFinal from "./screens/flight_options";
 import StayOptionsFinal from "./screens/stay_options";
 import SavedItems from "./screens/saved_items";
 import ActivityOptionsScreenFinal from "./screens/activity_options";
+import ItineraryManagementScreenFinal from "./screens/itinerary_management";
 
 
 
@@ -31,6 +32,7 @@ export default function App() {
         <Route path="/stays" element={<StayOptionsFinal />} />
         <Route path="/saved" element={<SavedItems />} />
         <Route path="/activities" element={<ActivityOptionsScreenFinal />} />
+        <Route path="/itinerary-management" element={<ItineraryManagementScreenFinal />} />
 
 
       </Routes>

@@ -62,6 +62,12 @@ export default function Home() {
         >
           Activity Options →
         </Link>
+        <Link
+          to="/itinerary-management"
+          className="block rounded-xl border border-neutral-200 bg-white p-4 text-sm font-medium hover:bg-neutral-100"
+        >
+          Itinerary Management →
+        </Link>
         </div>
 
         <div className="pt-4 text-xs text-neutral-500">
