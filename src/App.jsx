@@ -10,6 +10,7 @@ import StayOptionsFinal from "./screens/stay_options";
 import SavedItems from "./screens/saved_items";
 import ActivityOptionsScreenFinal from "./screens/activity_options";
 import ItineraryManagementScreenFinal from "./screens/itinerary_management";
+import MapsConverter from "./screens/maps_converter";
 
 
 
@@ -33,6 +34,7 @@ export default function App() {
         <Route path="/saved" element={<SavedItems />} />
         <Route path="/activities" element={<ActivityOptionsScreenFinal />} />
         <Route path="/itinerary-management" element={<ItineraryManagementScreenFinal />} />
+        <Route path="/maps-converter" element={<MapsConverter />} />
 
 
       </Routes>
